@@ -1,7 +1,9 @@
 import { getShoes} from "./shoes.js";
 import { getBag } from "./backpack.js";
+import Mustache from 'mustache';
+import Swiper from "swiper";
 import "./style.css";
-import "./public/search.png";
+import "swiper/css";
 
 const buttonMenu = document.querySelector("#button-menu");
 const menuMobile = document.querySelector("#mobile-menu");
