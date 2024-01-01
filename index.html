@@ -3,8 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./input.css" />
-    <link rel="stylesheet" href="../dist/output.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,19 +13,10 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
     <title>Product Store</title>
   </head>
 
-  <script src="main.js" type="module"></script>
-
+ 
   <body>
     <!----------------------Navbar-------------------------------->
     <header class="bg-slate-500 py-4 px-4">
@@ -53,7 +42,7 @@
         <nav class="sm:flex sm:flex-row hidden space-x-6 items-center">
           <div class="py-2">
             <img
-              src="./public/search.png"
+              src="/search.png"
               class="absolute w-[21px] h-[21px] mx-[9px] my-[12px]"
             />
             <input
@@ -138,8 +127,8 @@
       </div>
     </nav>
     <!--------------------------------------Carousel Products-------------------------------->
-    <section class="swiper __navigation">
-      <div class="swiper-wrapper __imageNavigation">
+    <section class="swiper hero-carousel">
+      <div class="swiper-wrapper">
         {{#products}}
         <div class="swiper-slide flex">
           <img
@@ -165,7 +154,7 @@
       <div class="swiper-button-next"></div>
     </section> 
     <!--------------------------------------Shoes Products----------------------------------->
-    <section class="__shoes-product bg-[#bfdeda] px-5 py-5 sm:px-28 sm:py-6">
+    <section class="shoes-carousel bg-[#bfdeda] px-5 py-5 sm:px-28 sm:py-6">
       <div class="flex flex-row sm:justify-between justify-center">
         <h1 class="text-white text-xl sm:text-3xl font-poppins py-7">Shoes Product</h1>
         <div class="hidden sm:flex sm:flex-row gap-4 py-7">
@@ -201,18 +190,31 @@
           </button>
         </div>
       </div>
-      <div class="swiper __swiper-card py-6">
-        <div id="shoes-items" class="swiper-wrapper flex flex-row"></div>
+      <div class="swiper py-6">
+        <div class="swiper-wrapper flex flex-row">
+          {{#items}}
+          <div class="swiper-slide font-poppins">
+            <img
+              class="w-full h-50"
+              src="{{image}}"
+              alt="{{title}}"
+            />
+            <p class="text-center text-sm text-gray-500 py-4">{{subtitle}}</p>
+            <h1 class="text-center text-xl">{{title}}</h1>
+            <p class="text-center text-md">{{price}}<p>
+          </div>
+          {{/items}}
+        </div>
       </div>
     </section>
     <!--------------------------------------Bag Products------------------------------------->
-   <section class="__bag-products bg-[#b0dac6] px-5 py-5 sm:px-28 sm:py-6">
+   <section class="bagpacks-carousel bg-[#b0dac6] px-5 py-5 sm:px-28 sm:py-6">
       <div class="flex flex-row sm:justify-between justify-center">
         <h1 class="text-white text-center text-xl sm:text-3xl font-poppins py-7">
           Backpacks Product
         </h1>
         <div class="hidden sm:flex sm:flex-row gap-4 py-7">
-          <button id="button-prev-1" class="button-prev-1">
+          <button class="button-prev">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="cursor-pointer"
@@ -227,7 +229,7 @@
               />
             </svg>
           </button>
-          <button id="button-next-1" class="button-next-1">
+          <button class="button-next">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="cursor-pointer"
@@ -244,8 +246,21 @@
           </button>
         </div>
       </div>
-      <div class="swiper __swiper-card-1 py-6">
-        <div id="bags-items" class="swiper-wrapper flex flex-row"></div>
+      <div class="swiper py-6">
+        <div class="swiper-wrapper flex flex-row">
+          {{#items}}
+          <div class="swiper-slide font-poppins">
+            <img
+              class="w-full h-50"
+              src="{{image}}"
+              alt="{{title}}"
+            />
+            <p class="text-center text-sm text-gray-500 py-4">{{subtitle}}</p>
+            <h1 class="text-center text-xl">{{title}}</h1>
+            <p class="text-center text-md">{{price}}<p>
+          </div>
+          {{/items}}
+        </div>
       </div>
     </section>
     <!-------------------------------------------Footer------------------------------------------>
@@ -255,5 +270,7 @@
         <p>Copyright &copy;2023</p>
       </div>
     </section> 
+
+    <script src="main.js" type="module"></script>
   </body>
 </html>
