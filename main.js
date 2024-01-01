@@ -44,7 +44,6 @@ const carouselSwiper = new Swiper(".__navigation", {
 });
 
 getShoes(15)
-  .then((response) => response.json())
   .then((data) => {
     const Shoes = document.querySelector("#shoes-items");
     data.forEach((item) => {
@@ -78,7 +77,6 @@ const swiper = new Swiper(".__swiper-card", {
 });
 
 getBag(15)
-  .then((response) => response.json())
   .then((items) => {
     const Bags = document.querySelector("#bags-items");
     items.forEach((data) => {
