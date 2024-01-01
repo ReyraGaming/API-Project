@@ -1,9 +1,10 @@
-import { getShoes} from "./shoes.js";
+import { getShoes } from "./shoes.js";
 import { getBag } from "./backpack.js";
-import Mustache from 'mustache';
-import Swiper from "swiper";
+import Mustache from "mustache";
+import Swiper from 'swiper'
 import "./style.css";
 import "swiper/css";
+import "swiper/css/navigation"
 
 const buttonMenu = document.querySelector("#button-menu");
 const menuMobile = document.querySelector("#mobile-menu");
@@ -36,6 +37,8 @@ const carousel = mainImages.innerHTML;
 
 mainImages.innerHTML = Mustache.render(carousel, { products });
 
+Swiper.use([Navigation])
+
 const carouselSwiper = new Swiper(".__navigation", {
   navigation: {
     nextEl: ".swiper-button-next",
@@ -43,11 +46,10 @@ const carouselSwiper = new Swiper(".__navigation", {
   },
 });
 
-getShoes(15)
-  .then((data) => {
-    const Shoes = document.querySelector("#shoes-items");
-    data.forEach((item) => {
-      Shoes.innerHTML += `
+getShoes(15).then((data) => {
+  const Shoes = document.querySelector("#shoes-items");
+  data.forEach((item) => {
+    Shoes.innerHTML += `
         <div class="swiper-slide font-poppins">
           <img
             class="w-full h-50"
@@ -58,8 +60,8 @@ getShoes(15)
           <h1 class="text-center text-xl">${item.title}</h1>
           <p class="text-center text-md">${item.price}<p>
         </div>`;
-    });
   });
+});
 
 const swiper = new Swiper(".__swiper-card", {
   slidesPerView: 1,
@@ -76,11 +78,10 @@ const swiper = new Swiper(".__swiper-card", {
   },
 });
 
-getBag(15)
-  .then((items) => {
-    const Bags = document.querySelector("#bags-items");
-    items.forEach((data) => {
-      Bags.innerHTML += `
+getBag(15).then((items) => {
+  const Bags = document.querySelector("#bags-items");
+  items.forEach((data) => {
+    Bags.innerHTML += `
         <div class="swiper-slide font-poppins">
           <img
             class="w-full h-50"
@@ -91,15 +92,15 @@ getBag(15)
           <h1 class="text-center text-xl">${data.title}</h1>
           <p class="text-center text-md">${data.price}<p>
         </div>`;
-    });
   });
+});
 
 const swiper1 = new Swiper(".__swiper-card-1", {
   slidesPerView: 1,
   spaceBetween: 15,
   navigation: {
-    nextEl: ".button-next-1",
-    prevEl: ".button-prev-1",
+    nextEl: "#button-next-1",
+    prevEl: "#button-prev-1",
   },
   breakpoints: {
     640: {
