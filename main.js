@@ -1,6 +1,4 @@
-import "./tailwind.config"
-import "./package-lock.json"
-import "./dist/output.css";
+import "./input.css";
 import "./public/search.png";
 
 document.addEventListener("DOMContentLoaded", function () {
