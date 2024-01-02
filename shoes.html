@@ -21,10 +21,6 @@
     />
     <title>Shoes</title>
   </head>
-
-  <script src="./products.js"></script>
-  <script src="https://unpkg.com/mustache@latest"></script>
-
   <body>
     <!-----Navbar---->
     <header class="bg-slate-500 py-4 px-4">
@@ -32,7 +28,7 @@
         <!-- Logo -->
         <h1 class="text-2xl py-2">Products Store</h1>
         <button
-          id="button-list-menu"
+          id="button-menu"
           class="p-2 rounded-lg bg-slate-500 hover:bg-slate-700 sm:hidden"
         >
           <svg
@@ -50,7 +46,7 @@
         <nav class="sm:flex sm:flex-row hidden space-x-6 items-center">
           <div class="py-2">
             <img
-              src="../asset/search.png"
+              src="./public/search.png"
               class="absolute w-[21px] h-[21px] mx-[9px] my-[12px]"
             />
             <input
@@ -95,7 +91,7 @@
     </header>
     <!-- Navbar Mobile -->
     <nav
-      id="mobile-list-menu"
+      id="mobile-menu"
       class="hidden flex-col bg-slate-500 w-[100vw] h-[100vh] sm:hidden"
     >
       <input
@@ -147,7 +143,9 @@
       <div
         id="shoes-items"
         class="grid gap-y-[80px] gap-x-[40px] grid-cols-1 sm:grid-cols-4"
-      ></div>
+      >
+        
+      </div>
     </section>
     <!-----Footer---------->
     <section class="__footer bg-[#000000]">
@@ -155,6 +153,7 @@
         <p>Fake Store</p>
         <p>Copyright &copy;2023</p>
       </div>
-    </section> 
+    </section>
   </body>
+  <script src="./shoes-page.js" type="module"></script>
 </html>
